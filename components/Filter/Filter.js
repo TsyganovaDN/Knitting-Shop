@@ -6,11 +6,13 @@ class Filter{
     slideOne(min_value){ 
         let sliderOne = document.getElementById("slider-1");
         let sliderTwo = document.getElementById("slider-2");
+        let displayValOne = document.getElementById("range1");
         let minGap = 0;
       if (sliderTwo.value - sliderOne.value <= minGap){
             sliderOne.value = parseInt(sliderTwo.value)-minGap;
+            displayValOne.textContent=parseInt(sliderTwo.value)-minGap;
         }
-        let displayValOne = document.getElementById("range1");
+      else        
         displayValOne.textContent=min_value;
         productsPage.render_price(sliderOne.value,sliderTwo.value);
         
@@ -19,13 +21,14 @@ class Filter{
     slideTwo(max_value){
         let sliderOne = document.getElementById("slider-1");
         let sliderTwo = document.getElementById("slider-2");
+        let displayValTwo = document.getElementById("range2");
         let minGap = 0;
        if (sliderTwo.value-sliderOne.value <= minGap){
             sliderTwo.value = parseInt(sliderOne.value)+ minGap;
+            displayValTwo.textContent=parseInt(sliderOne.value)+ minGap;
         }
-        let displayValTwo = document.getElementById("range2");
+        else        
         displayValTwo.textContent=max_value;
-        let MaxPrice=max_value;
         productsPage.render_price(sliderOne.value,sliderTwo.value);
     }
 
